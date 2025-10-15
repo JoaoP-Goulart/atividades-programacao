@@ -1,47 +1,55 @@
 #include <iostream>
-
 using namespace std;
 
-int main(){
-	int N;
-	cin >> N;
-	int* vA = new int[N];
-	
-	
-	for(int i = 0; i < N;i++){
-	cin >> vA[i];
-}
+int main() {
+    int N;
+    cin >> N;
 
-for(int i = 0; i < N; i++){
-	if(vA[i]%2 == 0){
-		cout << vA[i] << " ";
+    int* v = new int[N];
+
+    for (int i = 0; i < N; i++) {
+        cin >> v[i];
+    }
+
+    bool temMult2 = false;
+    bool temMult3 = false;
+    bool temMult2e3 = false;
+
+ 
+    for (int i = 0; i < N; i++) {
+        if (v[i] % 2 == 0) {
+            cout << v[i] << " ";
+            temMult2 = true;
+        }
+    }
+    if (!temMult2){
+		 cout << 0;
+		 }
+    cout << endl;
+
+    for (int i = 0; i < N; i++) {
+        if (v[i] % 3 == 0) {
+            cout << v[i] << " ";
+            temMult3 = true;
+        }
+    }
+    if (!temMult3) {
+		cout << 0;
 	}
+    
+    cout << endl;
+
+    for (int i = 0; i < N; i++) {
+        if (v[i] % 2 == 0 && v[i] % 3 == 0) {
+            cout << v[i] << " ";
+            temMult2e3 = true;
+        }
+    }
+    if (!temMult2e3){
+		 cout << 0;
+	 }
+    cout << endl;
+
+    delete[] v; 
+    return 0;
 }
-cout << endl;
-
-
-for(int i = 0; i < N; i++){
-	if(vA[i]%3 == 0){
-		cout << vA[i] << " ";
-	}
-}
-cout << endl;
-
-
-for(int i = 0; i < N; i++){
-	if(vA[i]%2 == 0 && vA[i]%3 == 0 ){
-		cout << vA[i] << " ";
-	}
-	
-}
-cout << endl;
-
-
-
-delete[] vA;
-
-	return 0;
-}
-
-	
-
