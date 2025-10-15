@@ -17,20 +17,21 @@ for(int i = 0; i < N;i++){
 
 bool iguais = true;
 for(int i = 0;i < N; i ++){
+	bool achou = false;
 	for(int j = 0; j < N;j++){
 	if(vA[i] == vB[j]){
-		iguais = true;
+		achou = true;
 		break;
 	}
-	else{
+}
+if(achou == false){
 		iguais = false;
+		break;
 	}
-	
-}
 
 }
 
-if(iguais == true){
+if(iguais){
 	cout << "IGUAIS" << endl;
 }
 else{
