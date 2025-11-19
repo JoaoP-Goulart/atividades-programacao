@@ -1,58 +1,46 @@
 #include <iostream>
+
 using namespace std;
 
 
-struct crianca{
+struct nascimento{
+	int dia, mes, ano;
+};
+struct pessoa{
 	string nome;
-	string brinquedo;
+	nascimento nasc;
+	
 };
 
-struct nomebrinquedo{
-	string nomebrinq;
-	int quantidade;
-	int quantidadepedida;
-};
+int main(){
+	int quantidade, pesMaisVelha = 0;
+	cin >> quantidade;
 	
+	pessoa *lista = new pessoa[quantidade];
 	
-
-int main() {
-	int cartas;
-	cin >> cartas;
-	
-	crianca *lista = new crianca[cartas];
-	
-	for(int i = 0;i < cartas;i++){
-		cin >> lista[i].nome >> lista[i].brinquedo;
-	}
-	
-	int quantbon;
-	cin >> quantbon;
-	
-	nomebrinquedo *lista2 = new nomebrinquedo[quantbon];
-	
-	for(int i = 0; i < quantbon;i++){
-		cin >> lista2[i].nomebrinq >> lista2[i].quantidade;
-		lista2[i].quantidadepedida = 0;
+	for(int i = 0; i < quantidade; i++){
+		cin >> lista[i].nome >>lista[i].nasc.dia >>lista[i].nasc.mes >>lista[i].nasc.ano;
 		
 	}
 	
-	for (int i = 0; i < cartas; i++) {
-        for (int j = 0; j < quantbon; j++) {
-            if (lista[i].brinquedo == lista2[j].nomebrinq) {
-                lista2[j].quantidadepedida++;
-			}
-		}
+	for(int i = 1; i < quantidade; i++){
+		if(lista[pesMaisVelha].nasc.ano > lista[i].nasc.ano){
+			pesMaisVelha = i;
 	}
-	for(int x = 0;x< quantbon;x++){
-		if(lista2[x].quantidadepedida > lista2[x].quantidade){
-			cout << lista2[x].nomebrinq << " ";
+	else if(lista[pesMaisVelha].nasc.ano == lista[i].nasc.ano){
+		if(lista[pesMaisVelha].nasc.mes == lista[i].nasc.mes){
+			pesMaisVelha = i;
 		}
+     else if(lista[pesMaisVelha].nasc.mes == lista[i].nasc.mes){
+		if(lista[pesMaisVelha].nasc.dia == lista[i].nasc.dia){
+			pesMaisVelha = i;
+		}	
 	}
- 
- 
- delete[] lista;
- delete[] lista2;
-	
-    
-    return 0;
+}
+}
+
+cout << lista[pesMaisVelha].nome << endl;
+
+delete[] lista;
+return 0;
 }
